@@ -1,27 +1,25 @@
+import React from "react";
+
+import Intro from "./components/Intro";
+// import Navbar from "./components/Navbar";
+// import About from "./components/About";
+// import Projects from "./components/Projects";
+// import Skills from "./components/Skills";
+// import Contact from "./components/Contact";
+
 import './App.css';
-import React from 'react';
-
-
-
-function IntroPage() {
-  return (
-    <div className='Intro-Screen'>
-      <span className='Title'>Tristan Sinclair</span>
-    </div>
-
-  );
-}
 
 function App() {
   return (
-    <div>
-      <IntroPage />
-    </div>
-
-
-
+    <main>
+      <Intro/>
+      {/* <Navbar /> */}
+      {/* <About /> */}
+      {/* <Projects />
+        <Skills />
+        <Contact /> */}
+    </main>
   );
 }
-
 
 export default App;
