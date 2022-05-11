@@ -1,0 +1,186 @@
+{
+  "firstName": "Tristan",
+  "lastName": "Sinclair",
+  "major": "Computer Science",
+  "track": "Artificial Intelligence",
+  "totalUnits": 153,
+  "degreeProgress" : 89,
+  "coursesTaken": {
+    "BIO 27S": {
+      "units": 3,
+      "taken": "Summer 2019"
+    },
+    "PHYSICS 19": {
+      "units": 3,
+      "taken": "Summer 2019"
+    },
+    "ATHLETIC 22": {
+      "units": 2,
+      "taken": "Autumn 2019"
+    },
+    "HUMBIO 51": {
+      "units": 3,
+      "taken": "Autumn 2019"
+    },
+    "BIO 82": {
+      "units": 4,
+      "taken": "Autumn 2019"
+    },
+    "UAR 56": {
+      "units": 2,
+      "taken": "Autumn 2019"
+    },
+    "UAR 101M": {
+      "units": 2,
+      "taken": "Autumn 2019"
+    },
+    "CS 1C": {
+      "units": 1,
+      "taken": "Autumn 2019"
+    },
+    "CS 106A": {
+      "units": 5,
+      "taken": "Winter 2020"
+    },
+    "ECON 1": {
+      "units": 5,
+      "taken": "Winter 2020"
+    },
+    "FEMGEN 21R": {
+      "units": 2,
+      "taken": "Winter 2020"
+    },
+    "SPANLANG 1": {
+      "units": 5,
+      "taken": "Winter 2020"
+    },
+    "CS 106B": {
+      "units": 5,
+      "taken": "Spring 2020"
+    },
+    "MATH 51": {
+      "units": 5,
+      "taken": "Spring 2020"
+    },
+    "PWR 1HK": {
+      "units": 4,
+      "taken": "Spring 2020"
+    },
+    "CME 103": {
+      "units": 5,
+      "taken": "Summer 2020"
+    },
+    "THINK 65": {
+      "units": 5,
+      "taken": "Spring 2020"
+    },
+    "CS 107E": {
+      "units": 5,
+      "taken": "Autumn 2020"
+    },
+    "CS 1U": {
+      "units": 1,
+      "taken": "Autumn 2020"
+    },
+    "MS&E 120": {
+      "units": 4,
+      "taken": "Autumn 2020"
+    },
+    "MS&E 140": {
+      "units": 4,
+      "taken": "Autumn 2020"
+    },
+    "MS&E 145": {
+      "units": 4,
+      "taken": "Autumn 2020"
+    },
+    "ATHLETIC 10": {
+      "units": 2,
+      "taken": "Autumn 2020"
+    },
+    "CS 103": {
+      "units": 5,
+      "taken": "Winter 2021"
+    },
+    "MS&E 125": {
+      "units": 4,
+      "taken": "Winter 2021"
+    },
+    "MS&E 180": {
+      "units": 4,
+      "taken": "Winter 2021"
+    },
+    "SPANLANG 2": {
+      "units": 5,
+      "taken": "Winter 2021"
+    },
+    "MS&E 121": {
+      "units": 4,
+      "taken": "Spring 2021"
+    },
+    "CS 109": {
+      "units": 5,
+      "taken": "Spring 2021"
+    },
+    "PWR 2SN": {
+      "units": 4,
+      "taken": "Spring 2021"
+    },
+    "SPANLANG 3": {
+      "units": 5,
+      "taken": "Spring 2021"
+    },
+    "CS 110": {
+      "units": 5,
+      "taken": "Summer 2021"
+    },
+    "ATHLETIC 10_2": {
+      "units": 2,
+      "taken": "Autumn 2021"
+    },
+    "CS 157": {
+      "units": 3,
+      "taken": "Autumn 2021"
+    },
+    "CS 161": {
+      "units": 5,
+      "taken": "Autumn 2021"
+    },
+    "CS 238": {
+      "units": 4,
+      "taken": "Autumn 2021"
+    },
+    "ENGLISH 90Q": {
+      "units": 3,
+      "taken": "Autumn 2021"
+    },
+    "CS 182W": {
+      "units": 5,
+      "taken": "Winter 2022"
+    },
+    "ENGR 40M": {
+      "units": 5,
+      "taken": "Winter 2022"
+    },
+    "MS&E 111": {
+      "units": 4,
+      "taken": "Winter 2022"
+    }
+  },
+  "enrolledUnits": 13,
+  "enrolledClasses": [
+    "CS 194",
+    "CS 221",
+    "Physics 43",
+    "German 101"
+  ],
+  "quarters": {
+    "Summer 2019": {
+      "classes": {
+        "Physics 19": {
+          "units": 3
+        }
+      }
+    }
+  }
+}
