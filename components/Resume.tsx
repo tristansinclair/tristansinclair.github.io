@@ -6,6 +6,7 @@ import logoCepheid from "../images/logos/cepheid.png";
 import logoLockerverse from "../images/logos/lockerverse.webp";
 import logoRec from "../images/logos/rec.png";
 import { AcademicCapIcon, BriefcaseIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Resume() {
   let school = [
@@ -133,7 +134,7 @@ export default function Resume() {
           </li>
         ))}
       </ol>
-      <a
+      <Link
         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-200 font-medium text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-800/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
         href="/#"
       >
@@ -151,7 +152,7 @@ export default function Resume() {
             stroke-linejoin="round"
           ></path>
         </svg>
-      </a>
+      </Link>
     </section>
   );
 }

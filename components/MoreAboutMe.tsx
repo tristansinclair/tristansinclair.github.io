@@ -23,7 +23,7 @@ export default function MoreAboutMe() {
       </h3>
       <div className="mt-3 space-y-3 text-base text-zinc-600 dark:text-zinc-400">
         <p>
-          I've had the amazing priveledge of working two different internships
+          I've had the amazing privilege of working two different internships
           the past two summers:
         </p>
         <p>
