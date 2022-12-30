@@ -10,7 +10,7 @@ export default function Introduction() {
           src={imageMe}
           className="object-cover aspect-square rounded-full w-1/2 lg:w-full"
           alt=""
-          unoptimized
+          priority={true}
         />
       </div>
       <div className="col-span-2">

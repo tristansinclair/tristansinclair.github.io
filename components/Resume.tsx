@@ -71,7 +71,6 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
-                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -109,7 +108,6 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
-                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
