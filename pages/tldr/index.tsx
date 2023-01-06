@@ -81,7 +81,7 @@ export default function TLDR() {
   );
 }
 
-import ModeToggle from "../components/ModeToggle";
+import ModeToggle from "../../components/ModeToggle";
 
 interface NewsCardInterface {
   date: string;
