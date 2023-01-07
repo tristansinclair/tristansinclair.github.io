@@ -5,6 +5,9 @@ import { Card } from "../../../components/Card";
 import { ArchiveLayout } from "../../../components/Layout";
 import Head from "next/head";
 import { formatDate } from "../../../lib/formatDate";
+import { TLDRHeader } from "../../../components/TldrHeader";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import router from "next/router";
 
 type Newletters = Database["public"]["Tables"]["tldr_newsletters"]["Row"];
 type NewslettersResponse = Omit<Newletters, "id" | "created_at" | "content">;
@@ -49,8 +52,15 @@ export default function Archive() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="The TLDR Newletter's Archive" />
       </Head>
-
       <ArchiveLayout>
+        <button
+          type="button"
+          onClick={() => router.back()}
+          aria-label="Go back to articles"
+          className="group mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-translate-x-24 lg:mb-0 lg:-mt-1"
+        >
+          <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
+        </button>
         <header>
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
             {"TLDR Newletter Archive"}

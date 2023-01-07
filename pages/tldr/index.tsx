@@ -1,20 +1,18 @@
 import Head from "next/head";
+import { TLDRHeader } from "../../components/TldrHeader";
 
 export default function TLDR() {
   return (
     <>
       <Head>
-        <title>TLDR Redesign - Tristan Sinclair</title>
+        <title>TLDR Redesign</title>
         <meta name="description" content="Skills" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <TLDRHeader />
       <main className="overflow-hidden py-16 lg:py-24 lg:px-12">
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
-          <TLDRHeader />
-          <div className="flex justify-end">
-            <ModeToggle />
-          </div>
           <div className="mt-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
             <div className="mt-8">
               <h1 className="font-bold tracking-tight text-white sm:mt-5 text-8xl lg:mt-6 xl:text-9xl">
@@ -81,9 +79,6 @@ export default function TLDR() {
     </>
   );
 }
-
-import ModeToggle from "../../components/ModeToggle";
-import { TLDRHeader } from "../../components/TldrHeader";
 
 interface NewsCardInterface {
   date: string;
