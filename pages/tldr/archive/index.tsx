@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../../lib/initSupabase";
 import { Database } from "../../../lib/types/supabase";
 import { Card } from "../../../components/Card";
-import Link from "next/link";
 import { ArchiveLayout } from "../../../components/Layout";
 import Head from "next/head";
 import { formatDate } from "../../../lib/formatDate";
@@ -62,7 +61,7 @@ export default function Archive() {
             }
           </p>
         </header>
-        <div className="mt-16 sm:mt-20">
+        <div className="mt-12 sm:mt-20">
           <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
             <div className="flex max-w-4xl flex-col space-y-16">
               {newsletters.map(
