@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useRef } from "react";
+import { TLDRHeader } from "../components/TldrHeader";
 
 function usePrevious(value: any) {
   let ref = useRef();
@@ -14,5 +15,9 @@ function usePrevious(value: any) {
 
 export default function App({ Component, pageProps, router }: AppProps) {
   let previousPathname = usePrevious(router.pathname);
-  return <Component previousPathname={previousPathname} {...pageProps} />;
+  return (
+    <>
+      <Component previousPathname={previousPathname} {...pageProps} />
+    </>
+  );
 }

@@ -11,6 +11,7 @@ export default function TLDR() {
       </Head>
       <main className="overflow-hidden py-16 lg:py-24 lg:px-12">
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
+          <TLDRHeader />
           <div className="flex justify-end">
             <ModeToggle />
           </div>
@@ -82,6 +83,7 @@ export default function TLDR() {
 }
 
 import ModeToggle from "../../components/ModeToggle";
+import { TLDRHeader } from "../../components/TldrHeader";
 
 interface NewsCardInterface {
   date: string;

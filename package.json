@@ -10,6 +10,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "@next/font": "13.0.7",
     "@supabase/supabase-js": "^2.2.3",
@@ -24,7 +25,9 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@next/mdx": "^13.1.1",
     "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10.4.13",
     "eslint-config-next": "^13.0.7",
     "postcss": "^8.4.20",
