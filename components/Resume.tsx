@@ -71,6 +71,7 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
+                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -108,6 +109,7 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
+                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -134,7 +136,7 @@ export default function Resume() {
       </ol>
       <Link
         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-200 font-medium text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-800/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
-        href="/Tristan Sinclair Resume.pdf"
+        href="/#"
       >
         Download CV
         <svg
@@ -145,9 +147,9 @@ export default function Resume() {
         >
           <path
             d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           ></path>
         </svg>
       </Link>
