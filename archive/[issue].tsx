@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { ArchiveLayout } from "../../../components/Layout";
-import { supabase } from "../../../lib/initSupabase";
-import { Database } from "../../../lib/types/supabase";
+import { ArchiveLayout } from "../components-tldr/ArchiveLayout";
+import { supabase } from "../lib/initSupabase";
+import { Database } from "../lib/types/supabase";
 import router from "next/router";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
-import { formatDate } from "../../../lib/formatDate";
+import { formatDate } from "../lib/formatDate";
 import Link from "next/link";
 type Newletter = Database["public"]["Tables"]["tldr_newsletters"]["Row"];
 
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params: { issue } }) => {
+export const getStaticProps = async ({ params: { issue } }: any) => {
   const { data: newsletter } = await await supabase
     .from("tldr_newsletters")
     .select("*")
@@ -75,7 +75,7 @@ export default function Newsletter({ newsletter }: { newsletter: Newletter }) {
               </h1>
             </header>
             <div className="mt-8 prose dark:prose-invert">
-              {newsletter?.content?.intro_ad.map((ad: any) => (
+              {newsletter?.content?.valueOf().map((ad: any) => (
                 <>
                   <Link className="" href={ad.url}>
                     <h3>{ad.title}</h3>

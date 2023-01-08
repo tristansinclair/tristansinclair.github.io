@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Fragment, useEffect, useRef } from "react";
-import ModeToggle from "./ModeToggle";
+import ModeToggle from "../components/ModeToggle";
 
 function CloseIcon(props) {
   return (

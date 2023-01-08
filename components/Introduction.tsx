@@ -14,10 +14,6 @@ export default function Introduction() {
         />
       </div>
       <div className="col-span-2">
-        {/* <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-          Student, football player and software engineer.
-        </h1> */}
-
         <h1 className="py-6 text-4xl font-bold tracking-tight sm:text-5xl text-zinc-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-red-400 dark:to-pink-600">
           Student, football player and software engineer.
         </h1>

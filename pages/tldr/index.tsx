@@ -1,7 +1,15 @@
 import Head from "next/head";
-import { TLDRHeader } from "../../components/TldrHeader";
+import { TLDRHeader } from "../../components-tldr/TldrHeader";
+import Link from "next/link";
+import PostType from "../../interfaces/posts";
+import { getRecentPosts } from "../../lib/mdxUtils";
+import { formatDate } from "../../lib/formatDate";
 
-export default function TLDR() {
+type Props = {
+  allPosts: PostType[];
+};
+
+export default function TLDR({ allPosts }: Props) {
   return (
     <>
       <Head>
@@ -15,13 +23,13 @@ export default function TLDR() {
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
           <div className="mt-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
             <div className="mt-8">
-              <h1 className="font-bold tracking-tight text-white sm:mt-5 text-8xl lg:mt-6 xl:text-9xl">
+              <h1 className="font-bold tracking-tight sm:mt-5 text-8xl lg:mt-6 xl:text-9xl">
                 <span className="text-tldr-blue">T</span>
                 <span className="text-tldr-yellow">L</span>
                 <span className="text-tldr-green">D</span>
                 <span className="text-tldr-red">R</span>
               </h1>
-              <h3 className="mt-3 text-lg text-gray-300 sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
+              <h3 className="text-zinc-800 dark:text-zinc-200 mt-3 text-lg  sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
                 Byte sized news for busy techies: a free daily newsletter of the
                 most interesting stories in startups 🚀, tech 📱, and
                 programming 💻!
@@ -66,11 +74,21 @@ export default function TLDR() {
               <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-zinc-900 to-transparent z-50" />
 
               <div className="animate-marquee">
-                <NewsCards />
+                {allPosts.map((post) => (
+                  <>
+                    <NewsletterCard key={post.slug} newsletter={post} />
+                    <div className="h-3"></div>
+                  </>
+                ))}
               </div>
 
               <div className="absolute top-0 animate-marquee2">
-                <NewsCards />
+                {allPosts.map((post) => (
+                  <>
+                    <NewsletterCard key={post.slug + "1"} newsletter={post} />
+                    <div className="h-3"></div>
+                  </>
+                ))}
               </div>
             </div>
           </div>
@@ -80,69 +98,54 @@ export default function TLDR() {
   );
 }
 
-interface NewsCardInterface {
-  date: string;
-  title: string;
-  description: string;
-  category: string;
-  newsletter: string;
-}
-
-function NewsCard({
-  date,
-  title,
-  description,
-  category,
-  newsletter,
-}: NewsCardInterface) {
+// function NewsletterCard({ data }: { data: PostType; }) {
+function NewsletterCard({ newsletter }: { newsletter: PostType }) {
   return (
-    <div className="rounded-lg bg-white">
-      <div className="p-4">
-        <p className="mb-1 text-sm text-primary-500">
-          <time>{date}</time>
-        </p>
-        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
-        <p className="mt-1 text-gray-500 line-clamp-2">{description}</p>
-        <div className="mt-4 flex gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-            {category}
+    <Link href={newsletter.slug}>
+      <article className="flex flex-col rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 px-4 py-3">
+        <time
+          className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
+          dateTime={newsletter.date}
+        >
+          <span
+            className="absolute inset-y-0 left-0 flex items-center"
+            aria-hidden="true"
+          >
+            <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-1 text-xs font-semibold text-indigo-600">
-            {newsletter}
-          </span>
+          {formatDate(newsletter.date)}
+        </time>
+        <span className="text-base tracking-tight text-zinc-700 dark:text-zinc-200">
+          {newsletter.title}
+        </span>
+        <div
+          aria-hidden="true"
+          className="relative z-10 mt-4 flex items-center text-sm font-medium text-tldr-green"
+        >
+          Read article
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+            className="ml-1 h-4 w-4 stroke-current"
+          >
+            <path
+              d="M6.75 5.75 9.25 8l-2.5 2.25"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
         </div>
-      </div>
-    </div>
+      </article>
+    </Link>
   );
 }
 
-function NewsCards() {
-  return (
-    <>
-      <NewsCard
-        date="2023-01-03"
-        title="Tesla to Present the Generation 3 Platform at Investor Day in March 2023"
-        description="Tesla's Generation 3 platform will be presented at Investor Day on March 1. The new platform promises to reduce the overall cost of production. It will also be able to produce more vehicles in a smaller area than the current platform. Tesla has been hinting at a new vehicle for months and there are hints it may be unveiled soon."
-        category="📱 Big Tech & Startups"
-        newsletter="🤖 TLDR"
-      />
-      <div className="h-3"></div>
-      <NewsCard
-        date="2023-01-03"
-        title="Solana Jumps Double Digits to Reclaim $11"
-        description="The price of Solana has gone back to $11 after several days of trading below double-digits. Vitalik Buterin recently tweeted in support of Solana, saying that he hopes the community gets its fair chance to thrive. Solana has lost over 95% of its value since all-time highs. It has slipped from fifth place on the list of the largest cryptocurrencies by market cap to barely staying in the top 20."
-        category="📈 Markets & Business"
-        newsletter="⚡️ TLDR Crypto"
-      />
-      <div className="h-3"></div>
-      <NewsCard
-        date="2023-01-03"
-        title="Mafs (Website)"
-        description="Mafs is a package containing React components for interactive math. It allows users to build interactive and animated visuals with declarative code. Mafs can create visuals for Bézier curves, Riemann sums, fancy parabolas, projectile motion, and more."
-        category="💻 Programming, Design & Data Science"
-        newsletter="🤖 TLDR"
-      />
-      <div className="h-3"></div>
-    </>
-  );
-}
+export const getStaticProps = async () => {
+  const allPosts = getRecentPosts(["title", "date", "slug", "newsletter"]);
+
+  return {
+    props: { allPosts },
+  };
+};
