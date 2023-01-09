@@ -18,12 +18,12 @@ export default function TLDR({ allPosts }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TLDRHeader />
+      {/* <TLDRHeader /> */}
       <main className="overflow-hidden py-16 lg:py-24 lg:px-12">
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
           <div className="mt-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
-            <div className="mt-8">
-              <h1 className="font-bold tracking-tight sm:mt-5 text-8xl lg:mt-6 xl:text-9xl">
+            <div className="self-center">
+              <h1 className="font-bold tracking-tight text-8xl xl:text-9xl">
                 <span className="text-tldr-blue">T</span>
                 <span className="text-tldr-yellow">L</span>
                 <span className="text-tldr-green">D</span>
@@ -69,9 +69,9 @@ export default function TLDR({ allPosts }: Props) {
                 </p>
               </form>
             </div>
-            <div className="relative overflow-y-hidden mt-8 sm:mt-0">
-              <div className="absolute top-0 w-full h-24 bg-gradient-to-b from-zinc-900 to-transparent z-50" />
-              <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-zinc-900 to-transparent z-50" />
+            <div className="relative overflow-y-hidden mt-8 sm:mt-0 max-h-64 md:max-h-max">
+              <div className="absolute top-0 w-full h-12 md:h-24 bg-gradient-to-b from-zinc-900 to-transparent z-50" />
+              <div className="absolute bottom-0 w-full h-12 md:h-24 bg-gradient-to-t from-zinc-900 to-transparent z-50" />
 
               <div className="animate-marquee">
                 {allPosts.map((post) => (
@@ -98,10 +98,9 @@ export default function TLDR({ allPosts }: Props) {
   );
 }
 
-// function NewsletterCard({ data }: { data: PostType; }) {
 function NewsletterCard({ newsletter }: { newsletter: PostType }) {
   return (
-    <Link href={newsletter.slug}>
+    <Link href={"tldr/archive/" + newsletter.slug}>
       <article className="flex flex-col rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 px-4 py-3">
         <time
           className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
