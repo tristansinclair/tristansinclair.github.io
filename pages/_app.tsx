@@ -1,23 +1,47 @@
 import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { useEffect, useRef } from "react";
-import { TLDRHeader } from "../components-tldr/TldrHeader";
+import type { ReactNode } from "react";
+import React from "react";
 
-function usePrevious(value: any) {
-  let ref = useRef();
+type GetLayout = (page: ReactNode) => ReactNode;
 
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Page<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: GetLayout;
+};
 
-  return ref.current;
-}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type MyAppProps<P = {}> = AppProps<P> & {
+  Component: Page<P>;
+};
 
-export default function App({ Component, pageProps, router }: AppProps) {
-  let previousPathname = usePrevious(router.pathname);
+const defaultGetLayout: GetLayout = (page: ReactNode): ReactNode => page;
+
+function MyApp({ Component, pageProps }: MyAppProps): JSX.Element {
+  const getLayout = Component.getLayout ?? defaultGetLayout;
+
   return (
     <>
-      <Component previousPathname={previousPathname} {...pageProps} />
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      {getLayout(<Component {...pageProps} />)}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
+
+export default MyApp;
