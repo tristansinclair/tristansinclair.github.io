@@ -8,12 +8,10 @@ import React from "react";
 
 type GetLayout = (page: ReactNode) => ReactNode;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 type Page<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: GetLayout;
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 type MyAppProps<P = {}> = AppProps<P> & {
   Component: Page<P>;
 };

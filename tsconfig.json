@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": "src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/types/supabase.types", "components-tldr/Card.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/types/supabase.types", "components-tldr/Card.jsx", "components-tldr/NavLayout.jsx"],
   "exclude": ["node_modules"]
 }
 
