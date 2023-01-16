@@ -1,20 +1,25 @@
-import { getAllPosts } from "../../../lib/mdxUtils";
+import { getAllNewsletters } from "../../../lib/mdxUtils";
 import Head from "next/head";
-import PostType from "../../../interfaces/posts";
+import NewsletterType from "../../../interfaces/newsletters";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import NavLayout from "../../../components-tldr/NavLayout";
 import { NewsletterCardFull } from "../../../components-tldr/NewsletterCardFull";
 
 type Props = {
-  allPosts: PostType[];
+  allNewsletters: NewsletterType[];
 };
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(["title", "date", "slug", "newsletter"]);
+  const allNewsletters = getAllNewsletters([
+    "title",
+    "date",
+    "slug",
+    "newsletter",
+  ]);
 
   return {
-    props: { allPosts },
+    props: { allNewsletters },
   };
 };
 
@@ -26,7 +31,7 @@ Archive.getLayout = function getLayout(page: any) {
   );
 };
 
-export default function Archive({ allPosts }: Props) {
+export default function Archive({ allNewsletters }: Props) {
   return (
     <>
       <Head>
@@ -50,7 +55,7 @@ export default function Archive({ allPosts }: Props) {
         <div className="mt-12 sm:mt-20">
           <div className="lg:border-l lg:border-zinc-100 lg:px-6 lg:dark:border-zinc-700/40">
             <div className="flex max-w-4xl flex-col space-y-4">
-              {allPosts.map((post) => (
+              {allNewsletters.map((post) => (
                 <NewsletterCardFull key={post.slug} newsletter={post} />
               ))}
             </div>
@@ -60,5 +65,3 @@ export default function Archive({ allPosts }: Props) {
     </>
   );
 }
-
-

@@ -1,8 +1,8 @@
-import PostType from "../interfaces/posts";
+import NewsletterType from "../interfaces/newsletters";
 import { formatDate } from "../lib/formatDate";
 import Link from "next/link";
 
-export function NewsletterCardFull({ newsletter }: { newsletter: PostType; }) {
+export function NewsletterCardFull({ newsletter }: { newsletter: NewsletterType; }) {
   return (
     <>
       <article className="lg:grid lg:grid-cols-4 lg:items-baseline gap-20">

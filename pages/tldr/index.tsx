@@ -1,6 +1,6 @@
 import Head from "next/head";
-import PostType from "../../interfaces/posts";
-import { getRecentPosts } from "../../lib/mdxUtils";
+import NewsletterType from "../../interfaces/newsletters";
+import { getRecentNewsletters } from "../../lib/mdxUtils";
 import { supabase } from "../../lib/initSupabase";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import NavLayout from "../../components-tldr/NavLayout";
 import NewsletterCard from "../../components-tldr/NewsletterCard";
 
 type Props = {
-  allPosts: PostType[];
+  allNewsletters: NewsletterType[];
 };
 
 interface Subscribe {
@@ -18,10 +18,10 @@ interface Subscribe {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = getRecentPosts(["title", "date", "slug", "newsletter"]);
+  const allNewsletters = getRecentNewsletters(["title", "date", "slug", "newsletter"]);
 
   return {
-    props: { allPosts },
+    props: { allNewsletters },
   };
 };
 
@@ -33,7 +33,7 @@ TLDR.getLayout = function getLayout(page: any) {
   );
 };
 
-export default function TLDR({ allPosts }: Props) {
+export default function TLDR({ allNewsletters }: Props) {
   let router = useRouter();
 
   async function handleSubscribe(values: Subscribe) {
@@ -131,7 +131,7 @@ export default function TLDR({ allPosts }: Props) {
               <div className="absolute bottom-0 w-full h-12 lg:h-24 bg-gradient-to-t from-zinc-50 dark:from-zinc-900 to-transparent z-40" />
 
               <div className="animate-marquee">
-                {allPosts.map((post) => (
+                {allNewsletters.map((post) => (
                   <div key={post.slug}>
                     <NewsletterCard newsletter={post} />
                     <div className="h-3"></div>
@@ -140,7 +140,7 @@ export default function TLDR({ allPosts }: Props) {
               </div>
 
               <div className="absolute top-0 animate-marquee2">
-                {allPosts.map((post) => (
+                {allNewsletters.map((post) => (
                   <div key={post.slug}>
                     <NewsletterCard newsletter={post} />
                     <div className="h-3"></div>

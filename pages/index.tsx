@@ -9,7 +9,10 @@ export default function Home() {
     <>
       <Head>
         <title>Tristan Sinclair</title>
-        <meta name="description" content="Welcome page to Tristan Sinclair's website." />
+        <meta
+          name="description"
+          content="Welcome page to Tristan Sinclair's website."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -2,15 +2,15 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
-const postsDirectory = join(process.cwd(), "_newsletters");
+const newslettersDirectory = join(process.cwd(), "_newsletters");
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(newslettersDirectory);
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = join(newslettersDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -37,23 +37,23 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPosts(fields: string[] = [], max?: number) {
+export function getAllNewsletters(fields: string[] = [], max?: number) {
   const slugs = getPostSlugs();
-  const posts = slugs
+  const newsletters = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
+    // sort newsletters by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
-  return posts;
+  return newsletters;
 }
 
-export function getRecentPosts(fields: string[] = []) {
+export function getRecentNewsletters(fields: string[] = []) {
   const slugs = getPostSlugs();
-  const posts = slugs
+  const newsletters = slugs
     .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
+    // sort newsletters by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     .slice(0, 4);
 
-  return posts;
+  return newsletters;
 }

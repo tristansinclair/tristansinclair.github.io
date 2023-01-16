@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import { getPostBySlug, getAllPosts } from "../../../lib/mdxUtils";
+import { getPostBySlug, getAllNewsletters } from "../../../lib/mdxUtils";
 import Head from "next/head";
-import type PostType from "../../../interfaces/posts";
+import type NewsletterType from "../../../interfaces/newsletters";
 import { remark } from "remark";
 import html from "remark-html";
 import { PageLayout } from "../../../components/Layout";
@@ -19,7 +19,7 @@ export async function markdownToHtml(markdown: string) {
 }
 
 type Props = {
-  post: PostType;
+  post: NewsletterType;
 };
 
 Post.getLayout = function getLayout(page: any) {
@@ -75,10 +75,10 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(["slug"]);
+  const newsletters = getAllNewsletters(["slug"]);
 
   return {
-    paths: posts.map((post) => {
+    paths: newsletters.map((post) => {
       return {
         params: {
           slug: post.slug,

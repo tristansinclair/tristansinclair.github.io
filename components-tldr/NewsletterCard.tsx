@@ -1,12 +1,12 @@
 import Link from "next/link";
-import PostType from "../interfaces/posts";
+import NewsletterType from "../interfaces/newsletters";
 import { formatDate } from "../lib/formatDate";
 
 export default function NewsletterCard({
   newsletter,
   ...props
 }: {
-  newsletter: PostType;
+  newsletter: NewsletterType;
 }) {
   return (
     <Link {...props} href={"tldr/archive/" + newsletter.slug}>
