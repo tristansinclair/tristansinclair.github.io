@@ -7,6 +7,7 @@ import { remark } from "remark";
 import html from "remark-html";
 import { PageLayout } from "../../../components/Layout";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
+import NavLayout from "../../../components-tldr/NavLayout";
 
 const Newsletter = ({ content }: { content: string }) => {
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
@@ -19,6 +20,14 @@ export async function markdownToHtml(markdown: string) {
 
 type Props = {
   post: PostType;
+};
+
+Post.getLayout = function getLayout(page: any) {
+  return (
+    <>
+      <NavLayout>{page}</NavLayout>
+    </>
+  );
 };
 
 export default function Post({ post }: Props) {

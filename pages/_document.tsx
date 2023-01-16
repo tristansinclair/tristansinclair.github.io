@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { ToastContainer } from "react-toastify";
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -41,14 +40,10 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <script dangerouslySetInnerHTML={{ __html: modeScript }} />
-
-      
       <body className="h-full bg-zinc-50 dark:bg-zinc-900">
-        
         <Main />
         <NextScript />
       </body>
-      
     </Html>
   );
 }

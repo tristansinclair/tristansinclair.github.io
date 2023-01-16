@@ -7,9 +7,17 @@ import { Card } from "../../../components-tldr/Card";
 import { formatDate } from "../../../lib/formatDate";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import NavLayout from "../../../components-tldr/NavLayout";
 
 type Props = {
   allPosts: PostType[];
+};
+Archive.getLayout = function getLayout(page: any) {
+  return (
+    <>
+      <NavLayout>{page}</NavLayout>
+    </>
+  );
 };
 
 export default function Archive({ allPosts }: Props) {

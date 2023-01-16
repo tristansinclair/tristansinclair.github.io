@@ -20,7 +20,11 @@ interface Subscribe {
 }
 
 TLDR.getLayout = function getLayout(page: any) {
-  return <NavLayout>{page}</NavLayout>;
+  return (
+    <>
+      <NavLayout>{page}</NavLayout>
+    </>
+  );
 };
 
 export default function TLDR({ allPosts }: Props) {
@@ -65,7 +69,6 @@ export default function TLDR({ allPosts }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <TLDRHeader /> */}
       <main className="overflow-hidden py-16 lg:py-24 lg:px-12">
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
           <div className="mt-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
