@@ -90,7 +90,7 @@ export default function TLDR({ allNewsletters }: Props) {
                 <span className="text-tldr-green">D</span>
                 <span className="text-tldr-red">R</span>
               </h1>
-              <h3 className="text-zinc-800 dark:text-zinc-200 mt-3 text-lg  sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
+              <h3 className="text-zinc-700 dark:text-zinc-200 mt-3 text-lg  sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
                 Byte sized news for busy techies: a free daily newsletter of the
                 most interesting stories in startups 🚀, tech 📱, and
                 programming 💻!
@@ -116,7 +116,7 @@ export default function TLDR({ allNewsletters }: Props) {
                         name="email"
                         type="email"
                         placeholder="Enter your email"
-                        className="block w-full rounded-md px-4 py-3 bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 text-base text-zinc-900 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-tldr-green focus:ring-offset-2"
+                        className="block w-full rounded-md px-4 py-3 transition min-w-0 flex-auto appearance-none border border-zinc-900/10 bg-white  shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-tldr-green-500 focus:outline-none focus:ring-4 focus:ring-tldr-green-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:text-sm"
                       />
                     </div>
                     <div className="mt-3 sm:mt-0 sm:ml-3">

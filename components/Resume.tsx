@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import logoSRV from "../images/logos/srv.png";
 import logoStanford from "../images/logos/stanford.png";
 import logoCepheid from "../images/logos/cepheid.png";
@@ -70,7 +71,6 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
-                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -108,7 +108,6 @@ export default function Resume() {
                 src={role.logo}
                 alt=""
                 className="h-7 w-7 object-contain"
-                unoptimized
               />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -135,7 +134,7 @@ export default function Resume() {
       </ol>
       <Link
         className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-200 font-medium text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-800/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
-        href="/#"
+        href="/Tristan Sinclair Resume.pdf"
       >
         Download CV
         <svg
