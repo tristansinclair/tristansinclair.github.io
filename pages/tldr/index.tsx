@@ -1,12 +1,12 @@
 import Head from "next/head";
 import NewsletterType from "../../interfaces/newsletters";
 import { getRecentNewsletters } from "../../lib/mdxUtils";
-import { supabase } from "../../lib/initSupabase";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import NavLayout from "../../components-tldr/NavLayout";
 import NewsletterCard from "../../components-tldr/NewsletterCard";
+import { supabase } from "../../lib/initSupabase";
 
 type Props = {
   allNewsletters: NewsletterType[];
@@ -18,7 +18,12 @@ interface Subscribe {
 }
 
 export const getStaticProps = async () => {
-  const allNewsletters = getRecentNewsletters(["title", "date", "slug", "newsletter"]);
+  const allNewsletters = getRecentNewsletters([
+    "title",
+    "date",
+    "slug",
+    "newsletter",
+  ]);
 
   return {
     props: { allNewsletters },

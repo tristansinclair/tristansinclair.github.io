@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import logoSRV from "../images/logos/srv.png";
 import logoStanford from "../images/logos/stanford.png";
 import logoCepheid from "../images/logos/cepheid.png";
@@ -147,9 +146,9 @@ export default function Resume() {
         >
           <path
             d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></path>
         </svg>
       </Link>

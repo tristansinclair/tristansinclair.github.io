@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Popover, Transition } from "@headlessui/react";
 import clsx from "clsx";
 
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment } from "react";
 import {
   ChevronDownIcon,
   MoonIcon,
@@ -116,7 +116,6 @@ function DesktopNavigation(props) {
     </nav>
   );
 }
-
 
 function ModeToggle() {
   function disableTransitionsTemporarily() {
