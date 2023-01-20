@@ -8,6 +8,7 @@ import html from "remark-html";
 import { PageLayout } from "../../../components/Layout";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
 import NavLayout from "../../../components-tldr/NavLayout";
+import NavLayoutNew from "../../../components-tldr/NavLayoutNew";
 
 const Newsletter = ({ content }: { content: string }) => {
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
@@ -25,7 +26,7 @@ type Props = {
 Post.getLayout = function getLayout(page: any) {
   return (
     <>
-      <NavLayout>{page}</NavLayout>
+      <NavLayoutNew>{page}</NavLayoutNew>
     </>
   );
 };
