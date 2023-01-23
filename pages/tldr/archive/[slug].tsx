@@ -37,12 +37,11 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
-  console.log(post);
+  // console.log(post);
   return (
     <>
       <Head>
         <title>
-          {post.title}
           {post.title}
         </title>
       </Head>
