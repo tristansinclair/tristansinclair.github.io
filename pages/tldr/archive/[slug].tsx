@@ -5,9 +5,7 @@ import Head from "next/head";
 import type NewsletterType from "../../../interfaces/newsletters";
 import { remark } from "remark";
 import html from "remark-html";
-import { PageLayout } from "../../../components/Layout";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
-import NavLayout from "../../../components-tldr/NavLayout";
 import NavLayoutNew from "../../../components-tldr/NavLayoutNew";
 
 const Newsletter = ({ content }: { content: string }) => {

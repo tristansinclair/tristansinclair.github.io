@@ -2,7 +2,6 @@ import { getAllNewsletters } from "../../../lib/mdxUtils";
 import Head from "next/head";
 import NewsletterType from "../../../interfaces/newsletters";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
-import NavLayout from "../../../components-tldr/NavLayout";
 import { NewsletterCardFull } from "../../../components-tldr/NewsletterCardFull";
 import NavLayoutNew from "../../../components-tldr/NavLayoutNew";
 
