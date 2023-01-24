@@ -44,13 +44,13 @@ function Navbar() {
   let curPath = useRouter().pathname;
   let isHome = curPath == "/tldr";
   return (
-    <Popover className="relative px-8 lg:px-12 z-50">
-      <div className="relative w-full mx-auto lg:max-w-6xl lg:px-8">
+    <Popover className="relative z-50 px-8 lg:px-12">
+      <div className="relative mx-auto w-full lg:max-w-6xl lg:px-8">
         <div className="flex items-center justify-between py-6 lg:justify-start lg:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             {!isHome && (
               <Link href="/tldr">
-                <h1 className="font-bold tracking-tight text-4xl text-shadow-lg shadow-zinc-300 dark:text-shadow-none">
+                <h1 className="text-4xl font-bold tracking-tight shadow-zinc-300 text-shadow-lg dark:text-shadow-none">
                   <span className="text-tldr-blue">T</span>
                   <span className="text-tldr-yellow">L</span>
                   <span className="text-tldr-green">D</span>
@@ -60,9 +60,12 @@ function Navbar() {
             )}
           </div>
           <div className="-my-2 -mr-2 lg:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <Popover.Button className="btn-standard group ml-3 inline-flex items-center justify-center">
               <span className="sr-only">Open menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              <Bars3Icon
+                className="h-6 w-6 stroke-zinc-400 transition group-hover:stroke-zinc-500 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                aria-hidden="true"
+              />
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden space-x-10 lg:flex">
@@ -73,7 +76,7 @@ function Navbar() {
                     className={clsx(
                       open || curPath == "/tldr/archive"
                         ? "text-tldr-green"
-                        : "text-zinc-500",
+                        : "text-zinc-600 dark:text-zinc-500",
                       "group inline-flex items-center text-base font-medium hover:text-tldr-green focus:outline-none"
                     )}
                   >
@@ -84,7 +87,7 @@ function Navbar() {
                         open || curPath == "/tldr/archive"
                           ? "text-tldr-green"
                           : "text-zinc-500",
-                        "ml-2 h-5 w-5 group-hover:text-tldr-green transition-transform"
+                        "ml-2 h-5 w-5 transition-transform group-hover:text-tldr-green"
                       )}
                       aria-hidden="true"
                     />
@@ -117,10 +120,10 @@ function Navbar() {
                                   {item.emoji}
                                 </div>
                                 <div className="ml-4">
-                                  <p className="text-base font-medium text-zinc-700 dark:text-zinc-200">
+                                  <p className="nav-item-text-main">
                                     {item.name}
                                   </p>
-                                  <p className="mt-1 text-sm text-zinc-400 dark:text-zinc-500">
+                                  <p className="nav-item-text-sub mt-1">
                                     {item.description}
                                   </p>
                                 </div>
@@ -135,14 +138,14 @@ function Navbar() {
               )}
             </Popover>
 
-            <a
-              href="#"
-              className="text-base font-medium  text-zinc-500 hover:text-tldr-green"
+            <Link
+              href="/tldr/advertising"
+              className="text-base font-medium text-zinc-600 hover:text-tldr-green dark:text-zinc-500"
             >
               Advertising
-            </a>
+            </Link>
           </Popover.Group>
-          <div className="hidden items-center justify-end lg:flex lg:flex-1 lg:w-0">
+          <div className="hidden items-center justify-end lg:flex lg:w-0 lg:flex-1">
             <ModeToggle />
           </div>
         </div>
@@ -159,75 +162,73 @@ function Navbar() {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden"
+          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden "
         >
-          <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-            <div className="px-5 pt-5 pb-6">
-              <div className="flex items-center justify-between">
-                <h1 className="font-bold tracking-tight text-4xl text-shadow-lg shadow-zinc-300 dark:text-shadow-none">
-                  <span className="text-tldr-blue">T</span>
-                  <span className="text-tldr-yellow">L</span>
-                  <span className="text-tldr-green">D</span>
-                  <span className="text-tldr-red">R</span>
-                </h1>
-                <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </Popover.Button>
+          {({ close }) => (
+            <div className="divide-y-[1px] divide-zinc-200 rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:divide-zinc-600 dark:bg-zinc-800 dark:ring-white/10">
+              <div className="px-5 pt-5 pb-6">
+                <div className="flex items-center justify-between">
+                  <Link
+                    href="/tldr"
+                    className="focus:outline-none"
+                    onClick={() => close()}
+                  >
+                    <h1 className="text-4xl font-bold tracking-tight shadow-zinc-300 text-shadow-lg dark:text-shadow-none">
+                      <span className="text-tldr-blue">T</span>
+                      <span className="text-tldr-yellow">L</span>
+                      <span className="text-tldr-green">D</span>
+                      <span className="text-tldr-red">R</span>
+                    </h1>
+                  </Link>
+                  <div className="-mr-2">
+                    <ModeToggle />
+                    <Popover.Button className="btn-standard group ml-3 inline-flex items-center justify-center">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon
+                        className="h-6 w-6 stroke-zinc-400 transition group-hover:stroke-zinc-500 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                        aria-hidden="true"
+                      />
+                    </Popover.Button>
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <nav className="grid gap-y-8">
+                    {newsletters.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="nav-item -m-3"
+                        onClick={() => close()}
+                      >
+                        <div
+                          className="h-6 w-6 flex-shrink-0"
+                          aria-hidden="true"
+                        >
+                          {item.emoji}
+                        </div>
+                        <span className="nav-item-text-main ml-3">
+                          {item.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </nav>
                 </div>
               </div>
-              <div className="mt-6">
-                <nav className="grid gap-y-8">
-                  {newsletters.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
-                    >
-                      <div className="h-6 w-6 flex-shrink-0" aria-hidden="true">
-                        {item.emoji}
-                      </div>
-                      <span className="ml-3 text-base font-medium text-gray-900">
-                        {item.name}
-                      </span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            </div>
-            <div className="space-y-6 py-6 px-5">
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Pricing
-                </a>
 
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Docs
-                </a>
-              </div>
-              <div>
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+              <div className="py-6 px-5">
+                <p className="text-center text-base font-medium text-zinc-400">
+                  Existing subscriber?{" "}
+                  <Link
+                    href="/tldr/login"
+                    className="text-tldr-green hover:text-tldr-green-600"
+                    onClick={() => close()}
+                  >
                     Sign in
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
-          </div>
+          )}
         </Popover.Panel>
       </Transition>
     </Popover>
