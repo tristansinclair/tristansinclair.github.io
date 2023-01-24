@@ -4,7 +4,7 @@ import { getRecentNewsletters } from "../../lib/mdxUtils";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-import NavLayoutNew from "../../components-tldr/NavLayoutNew";
+import NavLayout from "../../components-tldr/NavLayout";
 import NewsletterCard from "../../components-tldr/NewsletterCard";
 import { supabase } from "../../lib/initSupabase";
 
@@ -33,7 +33,7 @@ export const getStaticProps = async () => {
 TLDR.getLayout = function getLayout(page: any) {
   return (
     <>
-      <NavLayoutNew>{page}</NavLayoutNew>
+      <NavLayout>{page}</NavLayout>
     </>
   );
 };

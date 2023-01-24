@@ -7,7 +7,7 @@ import ModeToggle from "../components/ModeToggle";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function NavLayoutNew({ children }) {
+export default function NavLayout({ children }) {
   return (
     <>
       <Navbar />
@@ -77,13 +77,13 @@ function Navbar() {
                       open || curPath == "/tldr/archive"
                         ? "text-tldr-green"
                         : "text-zinc-600 dark:text-zinc-500",
-                      "group inline-flex items-center text-base font-medium hover:text-tldr-green focus:outline-none"
+                      "group inline-flex items-center text-base font-medium hover:text-tldr-green focus:outline-none dark:hover:text-tldr-green"
                     )}
                   >
                     <span>Newsletters</span>
                     <ChevronDownIcon
                       className={clsx(
-                        open ? "" : "rotate-180 ",
+                        open ? "" : "rotate-180",
                         open || curPath == "/tldr/archive"
                           ? "text-tldr-green"
                           : "text-zinc-500",
@@ -140,7 +140,7 @@ function Navbar() {
 
             <Link
               href="/tldr/advertising"
-              className="text-base font-medium text-zinc-600 hover:text-tldr-green dark:text-zinc-500"
+              className="text-base font-medium text-zinc-600 hover:text-tldr-green dark:text-zinc-500 dark:hover:text-tldr-green"
             >
               Advertising
             </Link>

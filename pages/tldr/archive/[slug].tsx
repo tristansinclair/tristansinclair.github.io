@@ -6,7 +6,7 @@ import type NewsletterType from "../../../interfaces/newsletters";
 import { remark } from "remark";
 import html from "remark-html";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
-import NavLayoutNew from "../../../components-tldr/NavLayoutNew";
+import NavLayout from "../../../components-tldr/NavLayout";
 
 const Newsletter = ({ content }: { content: string }) => {
   return <div dangerouslySetInnerHTML={{ __html: content }} />;
@@ -24,7 +24,7 @@ type Props = {
 Post.getLayout = function getLayout(page: any) {
   return (
     <>
-      <NavLayoutNew>{page}</NavLayoutNew>
+      <NavLayout>{page}</NavLayout>
     </>
   );
 };

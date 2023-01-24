@@ -3,7 +3,7 @@ import Head from "next/head";
 import NewsletterType from "../../../interfaces/newsletters";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
 import { NewsletterCardFull } from "../../../components-tldr/NewsletterCardFull";
-import NavLayoutNew from "../../../components-tldr/NavLayoutNew";
+import NavLayout from "../../../components-tldr/NavLayout";
 
 type Props = {
   allNewsletters: NewsletterType[];
@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
 Archive.getLayout = function getLayout(page: any) {
   return (
     <>
-      <NavLayoutNew>{page}</NavLayoutNew>
+      <NavLayout>{page}</NavLayout>
     </>
   );
 };
