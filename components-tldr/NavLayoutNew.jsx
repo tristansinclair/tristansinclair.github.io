@@ -59,7 +59,7 @@ function Navbar() {
               </Link>
             )}
           </div>
-          <div className="-my-2 -mr-2 lg:hidden">
+          <div className="px-2 lg:hidden">
             <Popover.Button className="btn-standard group ml-3 inline-flex items-center justify-center">
               <span className="sr-only">Open menu</span>
               <Bars3Icon
