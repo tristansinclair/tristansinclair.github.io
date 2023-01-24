@@ -44,8 +44,8 @@ function Navbar() {
   let curPath = useRouter().pathname;
   let isHome = curPath == "/tldr";
   return (
-    <Popover className="relative lg:px-12 z-50">
-      <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
+    <Popover className="relative px-8 lg:px-12 z-50">
+      <div className="relative w-full mx-auto lg:max-w-6xl lg:px-8">
         <div className="flex items-center justify-between py-6 lg:justify-start lg:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             {!isHome && (
@@ -107,7 +107,7 @@ function Navbar() {
                               <Link
                                 key={item.name}
                                 href={item.href}
-                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-zinc-700/90"
+                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-zinc-100/90 dark:hover:bg-zinc-700/90"
                                 onClick={() => close()}
                               >
                                 <div
