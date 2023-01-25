@@ -66,9 +66,7 @@ export default function TLDR({ allNewsletters }: Props) {
       console.log(data);
       router.push("tldr/archive");
       toast.success("Welcome to the TLDR Newsletter!");
-    } finally {
-      return;
-    }
+    } catch (err) {}
   }
 
   return (
@@ -84,13 +82,13 @@ export default function TLDR({ allNewsletters }: Props) {
         <div className="relative mx-auto max-w-xl px-10 lg:max-w-6xl lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12">
             <div>
-              <h1 className="mt-12 lg:mt-24 font-bold tracking-tight text-8xl xl:text-9xl text-shadow-lg shadow-zinc-300 dark:text-shadow-none">
+              <h1 className="mt-12 text-8xl font-bold tracking-tight shadow-zinc-300 text-shadow-lg dark:text-shadow-none lg:mt-24 xl:text-9xl">
                 <span className="text-tldr-blue">T</span>
                 <span className="text-tldr-yellow">L</span>
                 <span className="text-tldr-green">D</span>
                 <span className="text-tldr-red">R</span>
               </h1>
-              <h3 className="text-zinc-700 dark:text-zinc-200 mt-3 text-lg  sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
+              <h3 className="mt-3 text-lg text-zinc-700 dark:text-zinc-200  sm:mt-5 sm:text-xl lg:text-xl xl:text-2xl">
                 Byte sized news for busy techies: a free daily newsletter of the
                 most interesting stories in startups 🚀, tech 📱, and
                 programming 💻!
@@ -108,7 +106,7 @@ export default function TLDR({ allNewsletters }: Props) {
                 }}
               >
                 <Form>
-                  <div className="sm:flex mt-6">
+                  <div className="mt-6 sm:flex">
                     <div className="min-w-0 flex-1">
                       <Field
                         required
@@ -116,7 +114,7 @@ export default function TLDR({ allNewsletters }: Props) {
                         name="email"
                         type="email"
                         placeholder="Enter your email"
-                        className="block w-full rounded-md px-4 py-3 transition min-w-0 flex-auto appearance-none border border-zinc-900/10 bg-white  shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-tldr-green-500 focus:outline-none focus:ring-4 focus:ring-tldr-green-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:text-sm"
+                        className="block w-full min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-4 py-3 shadow-md  shadow-zinc-800/5 transition placeholder:text-zinc-400 focus:border-tldr-green-500 focus:outline-none focus:ring-4 focus:ring-tldr-green-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:text-sm"
                       />
                     </div>
                     <div className="mt-3 sm:mt-0 sm:ml-3">
@@ -131,11 +129,11 @@ export default function TLDR({ allNewsletters }: Props) {
                 </Form>
               </Formik>
             </div>
-            <div className="relative overflow-y-hidden mt-8 lg:mt-0 max-h-64 lg:max-h-max">
-              <div className="absolute top-0 w-full h-12 lg:h-24 bg-gradient-to-b from-zinc-50 dark:from-zinc-900 to-transparent z-40" />
-              <div className="absolute bottom-0 w-full h-12 lg:h-24 bg-gradient-to-t from-zinc-50 dark:from-zinc-900 to-transparent z-40" />
+            <div className="relative mt-8 max-h-64 overflow-y-hidden lg:mt-0 lg:max-h-max">
+              <div className="absolute top-0 z-40 h-12 w-full bg-gradient-to-b from-zinc-50 to-transparent dark:from-zinc-900 lg:h-24" />
+              <div className="absolute bottom-0 z-40 h-12 w-full bg-gradient-to-t from-zinc-50 to-transparent dark:from-zinc-900 lg:h-24" />
 
-              <div className="animate-marquee">
+              <div className="animate-marquee px-1">
                 {allNewsletters.map((post) => (
                   <div key={post.slug}>
                     <NewsletterCard newsletter={post} />
@@ -144,7 +142,7 @@ export default function TLDR({ allNewsletters }: Props) {
                 ))}
               </div>
 
-              <div className="absolute top-0 animate-marquee2">
+              <div className="absolute top-0 animate-marquee2 px-1">
                 {allNewsletters.map((post) => (
                   <div key={post.slug}>
                     <NewsletterCard newsletter={post} />

@@ -2,8 +2,8 @@ import { getAllNewsletters } from "../../../lib/mdxUtils";
 import Head from "next/head";
 import NewsletterType from "../../../interfaces/newsletters";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
-import NavLayout from "../../../components-tldr/NavLayout";
 import { NewsletterCardFull } from "../../../components-tldr/NewsletterCardFull";
+import NavLayout from "../../../components-tldr/NavLayout";
 
 type Props = {
   allNewsletters: NewsletterType[];
@@ -43,9 +43,9 @@ export default function Archive({ allNewsletters }: Props) {
       <ArchiveLayout>
         <header>
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {"TLDR Newletter Archive"}
+            {"Newsletter Archive"}
           </h1>
-          <p className="max-w-xl mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-6 max-w-xl text-base text-zinc-600 dark:text-zinc-400">
             {
               "TLDR is a daily newsletter with links and TLDRs of the most interesting stories in startups 🚀, tech 📱, and programming 💻!"
             }

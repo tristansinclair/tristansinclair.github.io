@@ -3,3 +3,26 @@
 @tailwind utilities;
 
 
+
+@layer components {
+
+    .nav-item {
+        @apply flex items-start rounded-lg p-3 hover:bg-zinc-100/90 dark:hover:bg-zinc-700/90
+    }
+
+    .nav-item-text-main {
+        @apply text-base font-medium text-zinc-700 dark:text-zinc-200
+    }
+
+    .nav-item-text-sub {
+        @apply text-sm text-zinc-400 dark:text-zinc-500
+    }
+
+    .btn-standard {
+        @apply rounded-md bg-white/90 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 focus:outline-none stroke-zinc-500 hover:stroke-zinc-700;
+    }
+
+    .btn-standard-interior {
+        @apply h-6 w-6 transition fill-zinc-100 hover:fill-zinc-200 dark:fill-zinc-700 dark:stroke-zinc-500
+    }
+}

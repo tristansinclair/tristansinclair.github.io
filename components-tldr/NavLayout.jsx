@@ -1,172 +1,236 @@
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import clsx from "clsx";
+import ModeToggle from "../components/ModeToggle";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Popover, Transition } from "@headlessui/react";
-import clsx from "clsx";
-
-import { Fragment } from "react";
-import {
-  ChevronDownIcon,
-  MoonIcon,
-  SunIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
 
 export default function NavLayout({ children }) {
   return (
     <>
-      <Header />
+      <Navbar />
       <main>{children}</main>
     </>
   );
 }
 
-function MobileNavItem({ href, children }) {
+const newsletters = [
+  {
+    name: "Startups, Tech, & Programming",
+    description:
+      "The latest news, trends, and insights on startups, technology, and programming, curated for tech enthusiasts and entrepreneurs.",
+    href: "/tldr/archive?newsletter=tech",
+    emoji: "👨‍💻",
+  },
+  {
+    name: "Crypto",
+    description:
+      "Updates on the latest developments in the cryptocurrency market and field.",
+    href: "/tldr/archive?newsletter=crypto",
+    emoji: "🪙",
+  },
+  {
+    name: "Founders & Entrepreneurs",
+    description:
+      "Provides practical advice, insights, and inspiration for technology startup founders and entrepreneurs.",
+    href: "/tldr/archive?newsletter=founders",
+    emoji: "🙍‍♀️",
+  },
+];
+
+function Navbar() {
+  let curPath = useRouter().pathname;
+  let isHome = curPath == "/tldr";
   return (
-    <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
-        {children}
-      </Popover.Button>
-    </li>
-  );
-}
-
-function MobileNavigation(props) {
-  return (
-    <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        Menu
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
-      </Popover.Button>
-      <Transition.Root>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
-        </Transition.Child>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel
-            focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
-          >
-            <div className="flex flex-row-reverse items-center justify-between">
-              <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <XMarkIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
-              </Popover.Button>
-              <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                Navigation
-              </h2>
-            </div>
-            <nav className="mt-6">
-              <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/tldr">Home</MobileNavItem>
-                <MobileNavItem href="/tldr/archive">Archive</MobileNavItem>
-              </ul>
-            </nav>
-          </Popover.Panel>
-        </Transition.Child>
-      </Transition.Root>
-    </Popover>
-  );
-}
-
-function NavItem({ href, children }) {
-  let isActive = useRouter().pathname === href;
-
-  return (
-    <li>
-      <Link
-        href={href}
-        className={clsx(
-          "relative block px-3 py-2 transition",
-          isActive
-            ? "text-teal-500 dark:text-teal-400"
-            : "hover:text-teal-500 dark:hover:text-teal-400"
-        )}
-      >
-        {children}
-        {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
-        )}
-      </Link>
-    </li>
-  );
-}
-
-function DesktopNavigation(props) {
-  return (
-    <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/tldr">Home</NavItem>
-        <NavItem href="/tldr/archive">Archive</NavItem>
-      </ul>
-    </nav>
-  );
-}
-
-function ModeToggle() {
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add("[&_*]:!transition-none");
-    window.setTimeout(() => {
-      document.documentElement.classList.remove("[&_*]:!transition-none");
-    }, 0);
-  }
-
-  function toggleMode() {
-    disableTransitionsTemporarily();
-
-    let darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    let isSystemDarkMode = darkModeMediaQuery.matches;
-    let isDarkMode = document.documentElement.classList.toggle("dark");
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode;
-    } else {
-      window.localStorage.isDarkMode = isDarkMode;
-    }
-  }
-
-  return (
-    <button
-      type="button"
-      aria-label="Toggle dark mode"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
-      onClick={toggleMode}
-    >
-      <SunIcon className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600" />
-      <MoonIcon className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
-    </button>
-  );
-}
-
-function Header() {
-  return (
-    <>
-      <header className="mt-12 lg:px-12">
-        <div className="mx-auto max-w-xl flex w-full justify-between px-10 lg:max-w-6xl lg:px-8">
-          <div className="lg:hidden">
-            <MobileNavigation />
+    <Popover className="relative z-50 px-8 lg:px-12">
+      <div className="relative mx-auto w-full lg:max-w-6xl lg:px-8">
+        <div className="flex items-center justify-between py-6 lg:justify-start lg:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            {!isHome && (
+              <Link href="/tldr">
+                <h1 className="text-4xl font-bold tracking-tight shadow-zinc-300 text-shadow-lg dark:text-shadow-none">
+                  <span className="text-tldr-blue">T</span>
+                  <span className="text-tldr-yellow">L</span>
+                  <span className="text-tldr-green">D</span>
+                  <span className="text-tldr-red">R</span>
+                </h1>
+              </Link>
+            )}
           </div>
-          <div className="hidden lg:block" />
-          <div className="hidden lg:block">
-            <DesktopNavigation />
+          <div className="px-2 lg:hidden">
+            <Popover.Button className="btn-standard group ml-3 inline-flex items-center justify-center">
+              <span className="sr-only">Open menu</span>
+              <Bars3Icon
+                className="h-6 w-6 stroke-zinc-400 transition group-hover:stroke-zinc-500 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                aria-hidden="true"
+              />
+            </Popover.Button>
           </div>
-          <ModeToggle />
+          <Popover.Group as="nav" className="hidden space-x-10 lg:flex">
+            <Popover className="relative">
+              {({ open }) => (
+                <>
+                  <Popover.Button
+                    className={clsx(
+                      open || curPath == "/tldr/archive"
+                        ? "text-tldr-green"
+                        : "text-zinc-600 dark:text-zinc-500",
+                      "group inline-flex items-center text-base font-medium hover:text-tldr-green focus:outline-none dark:hover:text-tldr-green"
+                    )}
+                  >
+                    <span>Newsletters</span>
+                    <ChevronDownIcon
+                      className={clsx(
+                        open ? "" : "rotate-180",
+                        open || curPath == "/tldr/archive"
+                          ? "text-tldr-green"
+                          : "text-zinc-500",
+                        "ml-2 h-5 w-5 transition-transform group-hover:text-tldr-green"
+                      )}
+                      aria-hidden="true"
+                    />
+                  </Popover.Button>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                      {({ close }) => (
+                        <div className="overflow-hidden rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10">
+                          <div className="relative grid gap-6 sm:gap-8 sm:p-8">
+                            {newsletters.map((item) => (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                className="-m-3 flex items-start rounded-lg p-3 hover:bg-zinc-100/90 dark:hover:bg-zinc-700/90"
+                                onClick={() => close()}
+                              >
+                                <div
+                                  className="h-6 w-6 flex-shrink-0"
+                                  aria-hidden="true"
+                                >
+                                  {item.emoji}
+                                </div>
+                                <div className="ml-4">
+                                  <p className="nav-item-text-main">
+                                    {item.name}
+                                  </p>
+                                  <p className="nav-item-text-sub mt-1">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
+
+            <Link
+              href="/tldr/advertising"
+              className="text-base font-medium text-zinc-600 hover:text-tldr-green dark:text-zinc-500 dark:hover:text-tldr-green"
+            >
+              Advertising
+            </Link>
+          </Popover.Group>
+          <div className="hidden items-center justify-end lg:flex lg:w-0 lg:flex-1">
+            <ModeToggle />
+          </div>
         </div>
-      </header>
-    </>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="duration-200 ease-out"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="duration-100 ease-in"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <Popover.Panel
+          focus
+          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden "
+        >
+          {({ close }) => (
+            <div className="divide-y-[1px] divide-zinc-200 rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:divide-zinc-600 dark:bg-zinc-800 dark:ring-white/10">
+              <div className="px-5 pt-5 pb-6">
+                <div className="flex items-center justify-between">
+                  <Link
+                    href="/tldr"
+                    className="focus:outline-none"
+                    onClick={() => close()}
+                  >
+                    <h1 className="text-4xl font-bold tracking-tight shadow-zinc-300 text-shadow-lg dark:text-shadow-none">
+                      <span className="text-tldr-blue">T</span>
+                      <span className="text-tldr-yellow">L</span>
+                      <span className="text-tldr-green">D</span>
+                      <span className="text-tldr-red">R</span>
+                    </h1>
+                  </Link>
+                  <div className="-mr-2">
+                    <ModeToggle />
+                    <Popover.Button className="btn-standard group ml-3 inline-flex items-center justify-center">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon
+                        className="h-6 w-6 stroke-zinc-400 transition group-hover:stroke-zinc-500 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400"
+                        aria-hidden="true"
+                      />
+                    </Popover.Button>
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <nav className="grid gap-y-8">
+                    {newsletters.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="nav-item -m-3"
+                        onClick={() => close()}
+                      >
+                        <div
+                          className="h-6 w-6 flex-shrink-0"
+                          aria-hidden="true"
+                        >
+                          {item.emoji}
+                        </div>
+                        <span className="nav-item-text-main ml-3">
+                          {item.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+              </div>
+
+              <div className="py-6 px-5">
+                <p className="text-center text-base font-medium text-zinc-400">
+                  Existing subscriber?{" "}
+                  <Link
+                    href="/tldr/login"
+                    className="text-tldr-green hover:text-tldr-green-600"
+                    onClick={() => close()}
+                  >
+                    Sign in
+                  </Link>
+                </p>
+              </div>
+            </div>
+          )}
+        </Popover.Panel>
+      </Transition>
+    </Popover>
   );
 }

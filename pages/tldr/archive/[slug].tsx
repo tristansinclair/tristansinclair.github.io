@@ -5,7 +5,6 @@ import Head from "next/head";
 import type NewsletterType from "../../../interfaces/newsletters";
 import { remark } from "remark";
 import html from "remark-html";
-import { PageLayout } from "../../../components/Layout";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
 import NavLayout from "../../../components-tldr/NavLayout";
 
@@ -36,17 +35,13 @@ export default function Post({ post }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
-  console.log(post);
   return (
     <>
       <Head>
-        <title>
-          {post.title}
-          {post.title}
-        </title>
+        <title>{post.title}</title>
       </Head>
       <ArchiveLayout>
-        <article className="max-w-none prose prose-zinc dark:prose-invert">
+        <article className="prose prose-zinc max-w-none dark:prose-invert">
           <Newsletter content={post.content} />
         </article>
       </ArchiveLayout>

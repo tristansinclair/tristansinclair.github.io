@@ -8,13 +8,13 @@ export default function Introduction() {
       <div className="justify-self-center lg:col-span-1">
         <Image
           src={imageMe}
-          className="object-cover aspect-square rounded-full w-1/2 lg:w-full"
+          className="aspect-square w-1/2 rounded-full object-cover lg:w-full"
           alt=""
           unoptimized
         />
       </div>
       <div className="col-span-2">
-        <h1 className="py-6 text-4xl font-bold tracking-tight sm:text-5xl text-zinc-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-red-400 dark:to-pink-600">
+        <h1 className="py-6 text-4xl font-bold tracking-tight text-zinc-800 dark:bg-gradient-to-r dark:from-red-400 dark:to-pink-600 dark:bg-clip-text dark:text-transparent sm:text-5xl">
           Student, football player and software engineer.
         </h1>
         <p className="text-base text-zinc-600 dark:text-zinc-400">

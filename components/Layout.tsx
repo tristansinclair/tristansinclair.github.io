@@ -13,5 +13,3 @@ export const PageLayout: React.FunctionComponent<Props> = (props: Props) => {
     </>
   );
 };
-
-
