@@ -38,12 +38,10 @@ export default function Post({ post }: Props) {
   return (
     <>
       <Head>
-        <title>
-          {post.title}
-        </title>
+        <title>{post.title}</title>
       </Head>
       <ArchiveLayout>
-        <article className="max-w-none prose prose-zinc dark:prose-invert">
+        <article className="prose prose-zinc max-w-none dark:prose-invert">
           <Newsletter content={post.content} />
         </article>
       </ArchiveLayout>

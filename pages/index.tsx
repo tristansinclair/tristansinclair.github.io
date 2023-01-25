@@ -23,11 +23,11 @@ export default function Home() {
             <ModeToggle />
           </div>
 
-          <div className="mt-2 lg:mt-0 lg:grid lg:grid-cols-3 lg:gap-12 place-items-center">
+          <div className="mt-2 place-items-center lg:mt-0 lg:grid lg:grid-cols-3 lg:gap-12">
             <Introduction />
           </div>
 
-          <div className="place-items-center mt-8 lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
+          <div className="mt-8 place-items-center lg:mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
             <MoreAboutMe />
             <Resume />
           </div>

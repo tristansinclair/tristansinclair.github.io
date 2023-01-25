@@ -58,10 +58,10 @@ export default function Resume() {
   ];
 
   return (
-    <section className="mt-8 lg:mt-0 rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/40 dark:ring-white/10 dark:hover:ring-white/20">
+    <section className="mt-8 rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/40 dark:ring-white/10 dark:hover:ring-white/20 lg:mt-0">
       <ol className="space-y-4">
         <h2 className="flex text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-          <AcademicCapIcon className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500 h-6 w-6 flex-none" />
+          <AcademicCapIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
           <span className="ml-3 self-center">Academics</span>
         </h2>
         {school.map((role, roleIndex) => (
@@ -98,7 +98,7 @@ export default function Resume() {
 
       <ol className="mt-10 space-y-4">
         <h2 className="flex text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-          <BriefcaseIcon className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500 h-6 w-6 flex-none" />
+          <BriefcaseIcon className="h-6 w-6 flex-none fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500" />
           <span className="ml-3 self-center">Work</span>
         </h2>
         {work.map((role, roleIndex) => (
@@ -133,7 +133,7 @@ export default function Resume() {
         ))}
       </ol>
       <Link
-        className="inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none bg-zinc-200 font-medium text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-800/60 dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70 group mt-6 w-full"
+        className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-zinc-200 py-2 px-3 text-sm font-medium text-zinc-800 outline-offset-2 transition hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-800/60 active:transition-none dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:active:bg-zinc-800/50 dark:active:text-zinc-50/70"
         href="/Tristan Sinclair Resume.pdf"
       >
         Download CV

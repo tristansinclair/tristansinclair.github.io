@@ -66,9 +66,7 @@ export default function TLDR({ allNewsletters }: Props) {
       console.log(data);
       router.push("tldr/archive");
       toast.success("Welcome to the TLDR Newsletter!");
-    } finally {
-      return;
-    }
+    } catch (err) {}
   }
 
   return (
