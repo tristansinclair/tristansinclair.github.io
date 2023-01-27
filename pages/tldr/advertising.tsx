@@ -37,7 +37,7 @@ export default function Advertise() {
       <main className="relative py-0 pb-12 lg:px-12">
         <div className="relative mx-auto w-full px-10 lg:max-w-6xl lg:px-8">
           <CompanySection />
-          <WhySection />ƒ
+          <WhySection />
         </div>
       </main>
     </>
