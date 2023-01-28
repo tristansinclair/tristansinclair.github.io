@@ -36,7 +36,7 @@ export default function Advertise() {
       </Head>
 
       <main className="relative py-0 pb-12 lg:px-12">
-        <div className="relative mx-auto grid w-full gap-12 px-10 pt-12 lg:max-w-6xl lg:px-8">
+        <div className="relative mx-auto mb-24 grid w-full gap-12 px-10 pt-12 lg:max-w-6xl lg:px-8">
           <Intro />
           <WhySection />
           {/* <CompanySection /> */}
@@ -50,17 +50,20 @@ export default function Advertise() {
 function Intro() {
   return (
     <div>
-      <h1 className="mx-auto mt-16 max-w-4xl text-center text-5xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl md:mt-32">
-        Elevate your advertising success.
+      <h2 className="mt-16 text-center text-lg font-semibold text-tldr-blue md:mt-32">
+        Advertising
+      </h2>
+      <h1 className="mx-auto text-center text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl">
+        Reach your target audience.
       </h1>
-      <p className="mx-auto mt-4 max-w-2xl text-lg tracking-tight text-zinc-700 dark:text-zinc-300">
-        Use our platform to reach and engage our engineers, entrepreneurs and
-        young creators from all around the world.
+      <p className="mx-auto mt-4 max-w-2xl text-center text-xl text-zinc-600 dark:text-zinc-300">
+        Use our platform to reach and engage engineers, entrepreneurs, and young
+        creators from all around the world.
       </p>
       <div className="mt-4 flex flex-col items-center justify-center">
         <Link
           href="https://danni763618.typeform.com/to/K4Gdz1?typeform-source=tldr.tech"
-          className="flex items-center justify-center rounded-2xl bg-tldr-green-500 py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-green-600 focus:outline-none focus:ring-2 focus:ring-tldr-green-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
+          className="flex items-center justify-center rounded-2xl bg-tldr-blue py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-blue-600 focus:outline-none focus:ring-2 focus:ring-tldr-green-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
         >
           Start now
         </Link>
@@ -127,13 +130,13 @@ function NeedHelp() {
               type="email"
               autoComplete="email"
               required
-              className="w-full rounded-md border border-zinc-900/10 bg-white px-5 py-3 shadow-md shadow-zinc-800/5  transition placeholder:text-zinc-400 focus:border-tldr-green-500 focus:outline-none focus:ring-4 focus:ring-tldr-green-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:max-w-xs sm:text-sm"
+              className="w-full rounded-md border border-zinc-900/10 bg-white px-5 py-3 shadow-md shadow-zinc-800/5  transition placeholder:text-zinc-400 focus:border-tldr-blue focus:outline-none focus:ring-4 focus:ring-tldr-blue/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:max-w-xs sm:text-sm"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md bg-tldr-green-500 py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-green-600 focus:outline-none focus:ring-2 focus:ring-tldr-green-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
+                className="flex w-full items-center justify-center rounded-md bg-tldr-blue py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-blue-600 focus:outline-none focus:ring-2 focus:ring-tldr-green-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
               >
                 Contact me
               </button>
