@@ -102,7 +102,7 @@ function Navbar() {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo="opacity-0 translate-y-1"
                   >
-                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+                    <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                       {({ close }) => (
                         <div className="overflow-hidden rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10">
                           <div className="relative grid gap-6 sm:gap-8 sm:p-8">
@@ -114,7 +114,7 @@ function Navbar() {
                                 onClick={() => close()}
                               >
                                 <div
-                                  className="h-6 w-6 flex-shrink-0"
+                                  className="h-6 w-6 shrink-0"
                                   aria-hidden="true"
                                 >
                                   {item.emoji}
@@ -140,7 +140,12 @@ function Navbar() {
 
             <Link
               href="/tldr/advertising"
-              className="text-base font-medium text-zinc-600 hover:text-tldr-green dark:text-zinc-500 dark:hover:text-tldr-green"
+              className={clsx(
+                curPath == "/tldr/advertising"
+                  ? "text-tldr-green dark:text-tldr-green"
+                  : "text-zinc-500",
+                "text-base font-medium hover:text-tldr-green dark:text-zinc-500 dark:hover:text-tldr-green"
+              )}
             >
               Advertising
             </Link>
@@ -162,7 +167,7 @@ function Navbar() {
       >
         <Popover.Panel
           focus
-          className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden "
+          className="absolute inset-x-0 top-0 origin-top-right p-2 transition lg:hidden"
         >
           {({ close }) => (
             <div className="divide-y-[1px] divide-zinc-200 rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:divide-zinc-600 dark:bg-zinc-800 dark:ring-white/10">
@@ -200,10 +205,7 @@ function Navbar() {
                         className="nav-item -m-3"
                         onClick={() => close()}
                       >
-                        <div
-                          className="h-6 w-6 flex-shrink-0"
-                          aria-hidden="true"
-                        >
+                        <div className="h-6 w-6 shrink-0" aria-hidden="true">
                           {item.emoji}
                         </div>
                         <span className="nav-item-text-main ml-3">

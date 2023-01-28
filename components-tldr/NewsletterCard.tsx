@@ -10,9 +10,9 @@ export default function NewsletterCard({
 }) {
   return (
     <Link {...props} href={"tldr/archive/" + newsletter.slug}>
-      <article className="flex flex-col rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 px-4 py-3">
+      <article className="flex flex-col rounded-2xl bg-white/90 px-4 py-3 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10">
         <time
-          className="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
+          className="relative z-10 order-first mb-3 flex items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500"
           dateTime={newsletter.date}
         >
           <span
