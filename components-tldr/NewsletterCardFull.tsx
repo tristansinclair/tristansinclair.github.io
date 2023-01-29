@@ -9,9 +9,9 @@ export function NewsletterCardFull({
 }) {
   return (
     <>
-      <article className="lg:grid lg:grid-cols-4 lg:items-baseline gap-20">
+      <article className="gap-20 lg:grid lg:grid-cols-4 lg:items-baseline">
         <time
-          className="hidden lg:block relative z-10 order-first mb-3 items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
+          className="relative z-10 order-first mb-3 hidden items-center pl-3.5 text-sm text-zinc-400 dark:text-zinc-500 lg:block"
           dateTime={newsletter.date}
         >
           <span
@@ -24,15 +24,15 @@ export function NewsletterCardFull({
         </time>
 
         <Link
-          className="col-span-3 flex flex-col rounded-2xl lg:hover:scale-[103%] bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 px-4 py-3"
+          className="col-span-3 flex flex-col rounded-2xl bg-white/90 px-4 py-3 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 lg:hover:scale-[103%]"
           href={"archive/" + newsletter.slug}
         >
           <time
-            className="lg:hidden order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500"
+            className="order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 lg:hidden"
             dateTime={newsletter.date}
           >
             <span className="relative flex items-center" aria-hidden="true">
-              <span className="h-4 w-0.5 mr-3 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+              <span className="mr-3 h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
               {formatDate(newsletter.date)}
             </span>
           </time>
