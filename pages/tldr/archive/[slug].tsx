@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getPostBySlug, getAllNewsletters } from "../../../lib/mdxUtils";
 import Head from "next/head";
-import type NewsletterType from "../../../interfaces/newsletters";
+import type { NewsletterFullType } from "../../../interfaces/newsletters";
 import { remark } from "remark";
 import html from "remark-html";
 import { ArchiveLayout } from "../../../components-tldr/ArchiveLayout";
@@ -18,7 +18,7 @@ export async function markdownToHtml(markdown: string) {
 }
 
 type Props = {
-  post: NewsletterType;
+  post: NewsletterFullType;
 };
 
 Post.getLayout = function getLayout(page: any) {
