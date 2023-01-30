@@ -93,6 +93,7 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
     require("prettier-plugin-tailwindcss"),
+    require("@tailwindcss/forms"),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

@@ -21,12 +21,12 @@ export default function NewsletterFilter() {
   var filters: NewsletterFilterType[] = [
     {
       id: "newsletter",
-      name: "Newsletter",
+      name: "Filter",
       options: [
         {
           value: "tech",
           id: "newsletter",
-          label: "Tech",
+          label: "👨‍💻 Tech",
           checked: (router.query["newsletter"] as string)
             ?.split(",")
             .includes("tech")
@@ -36,7 +36,7 @@ export default function NewsletterFilter() {
         {
           value: "crypto",
           id: "newsletter",
-          label: "Crypto",
+          label: "🪙 Crypto",
           checked: (router.query["newsletter"] as string)
             ?.split(",")
             .includes("crypto")
@@ -100,7 +100,7 @@ export default function NewsletterFilter() {
                 <span>{section.name}</span>
                 <ChevronDownIcon
                   className={clsx(
-                    open ? "" : "rotate-180",
+                    open ? "text-tldr-green" : "rotate-180",
                     filterActive ? "text-tldr-green" : "text-zinc-500",
                     "ml-2 h-5 w-5 transition-transform group-hover:text-tldr-green"
                   )}
@@ -117,8 +117,8 @@ export default function NewsletterFilter() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Popover.Panel className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black/5 focus:outline-none">
-                  <div className="space-y-4">
+                <Popover.Panel className="absolute right-0 z-10 mt-2 w-48 origin-top-right overflow-hidden rounded-2xl bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10">
+                  <div className="space-y-4 py-4 px-8">
                     {section.options.map((option, optionIdx) => (
                       <div key={option.value} className="flex items-center">
                         <input
@@ -127,14 +127,14 @@ export default function NewsletterFilter() {
                           name={`${option.id}[]`}
                           defaultValue={option.value}
                           type="checkbox"
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-gray-300 text-tldr-green focus:text-tldr-green"
                           onChange={(e) => {
                             handleCheck(e.target.checked, option.id, option);
                           }}
                         />
                         <label
                           htmlFor={`filter-${option.id}-${optionIdx}`}
-                          className="ml-3 text-sm text-gray-600"
+                          className="nav-item-text-main  ml-3"
                         >
                           {option.label}
                         </label>
