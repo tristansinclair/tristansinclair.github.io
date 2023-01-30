@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NewsletterType from "../interfaces/newsletters";
+import { NewsletterType } from "../interfaces/newsletters";
 import { formatDate } from "../lib/formatDate";
 
 export default function NewsletterCard({

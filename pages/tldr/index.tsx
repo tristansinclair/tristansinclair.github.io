@@ -1,5 +1,5 @@
 import Head from "next/head";
-import NewsletterType from "../../interfaces/newsletters";
+import { NewsletterType } from "../../interfaces/newsletters";
 import { getRecentNewsletters } from "../../lib/mdxUtils";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { toast } from "react-toastify";
