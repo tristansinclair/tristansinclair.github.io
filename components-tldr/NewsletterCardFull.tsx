@@ -1,4 +1,4 @@
-import NewsletterType from "../interfaces/newsletters";
+import { NewsletterType } from "../interfaces/newsletters";
 import { formatDate } from "../lib/formatDate";
 import Link from "next/link";
 

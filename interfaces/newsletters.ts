@@ -1,8 +1,12 @@
-type NewsletterType = {
+export type NewsletterType = {
   title: string;
   date: string;
   slug: string;
   newsletter: string;
 };
 
-export default NewsletterType;
+export type NewsletterFullType = {
+  title: string;
+  slug: string;
+  content: string;
+};
