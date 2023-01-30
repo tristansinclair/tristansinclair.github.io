@@ -23,6 +23,7 @@ const newsletters = [
       "The latest news, trends, and insights on startups, technology, and programming, curated for tech enthusiasts and entrepreneurs.",
     href: "/tldr/archive?newsletter=tech",
     emoji: "👨‍💻",
+    launched: true,
   },
   {
     name: "Crypto",
@@ -30,13 +31,15 @@ const newsletters = [
       "Updates on the latest developments in the cryptocurrency market and field.",
     href: "/tldr/archive?newsletter=crypto",
     emoji: "🪙",
+    launched: true,
   },
   {
     name: "Founders & Entrepreneurs",
     description:
       "Provides practical advice, insights, and inspiration for technology startup founders and entrepreneurs.",
-    href: "/tldr/archive?newsletter=founders",
+    href: "/tldr/archive",
     emoji: "🙍‍♀️",
+    launched: false,
   },
 ];
 
@@ -121,11 +124,18 @@ function Navbar() {
                                 </div>
                                 <div className="ml-4">
                                   <p className="nav-item-text-main">
-                                    {item.name}
+                                    <span>{item.name}</span>
                                   </p>
                                   <p className="nav-item-text-sub mt-1">
                                     {item.description}
                                   </p>
+                                  {!item.launched && (
+                                    <p className="mt-1">
+                                      <span className="rounded-full bg-tldr-yellow-400 px-2 py-1 text-xs">
+                                        Coming Soon!
+                                      </span>
+                                    </p>
+                                  )}
                                 </div>
                               </Link>
                             ))}

@@ -31,7 +31,19 @@ module.exports = {
           800: "#005388",
           900: "#003150",
         },
-        "tldr-yellow": "#E8BF60",
+        "tldr-yellow": {
+          DEFAULT: "#E8BF60",
+          50: "#FFFFFF",
+          100: "#FDF8EF",
+          200: "#F7EACB",
+          300: "#F2DCA7",
+          400: "#EDCD84",
+          500: "#E8BF60",
+          600: "#E1AB2F",
+          700: "#BD8C1B",
+          800: "#8C6814",
+          900: "#5B430D",
+        },
         "tldr-green": {
           DEFAULT: "#65C3AD",
           50: "#E9F6F3",
@@ -46,7 +58,19 @@ module.exports = {
           900: "#14342C",
         },
 
-        "tldr-red": "#DC6B6B",
+        "tldr-red": {
+          DEFAULT: "#DC6B6B",
+          50: "#FFFFFF",
+          100: "#FBEFEF",
+          200: "#F3CECE",
+          300: "#ECADAD",
+          400: "#E48C8C",
+          500: "#DC6B6B",
+          600: "#D13E3E",
+          700: "#AE2929",
+          800: "#801E1E",
+          900: "#531414",
+        },
       },
 
       animation: {

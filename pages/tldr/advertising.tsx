@@ -130,15 +130,15 @@ function NeedHelp() {
               type="email"
               autoComplete="email"
               required
-              className="w-full rounded-md border border-zinc-900/10 bg-white px-5 py-3 shadow-md shadow-zinc-800/5  transition placeholder:text-zinc-400 focus:border-tldr-blue focus:outline-none focus:ring-4 focus:ring-tldr-blue/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-green-400 dark:focus:ring-tldr-green-400/10 sm:max-w-xs sm:text-sm"
+              className="w-full rounded-md border border-zinc-900/10 bg-white px-5 py-3 shadow-md shadow-zinc-800/5  transition placeholder:text-zinc-400 focus:border-tldr-blue focus:outline-none focus:ring-4 focus:ring-tldr-blue/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-tldr-blue-400 dark:focus:ring-tldr-blue-400/10 sm:max-w-xs sm:text-sm"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md bg-tldr-blue py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-blue-600 focus:outline-none focus:ring-2 focus:ring-tldr-green-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
+                className="flex w-full items-center justify-center rounded-md bg-tldr-blue py-3 px-5 text-base font-medium text-white shadow hover:bg-tldr-blue-600 focus:outline-none focus:ring-2 focus:ring-tldr-blue-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
               >
-                Contact me
+                Contact us
               </button>
             </div>
           </form>
