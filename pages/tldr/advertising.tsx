@@ -16,6 +16,9 @@ import logoLaunchDarkly from "../../images/tldr/logos/launchdarkly.svg";
 import logoRetool from "../../images/tldr/logos/retool.svg";
 import logoDrata from "../../images/tldr/logos/drata.svg";
 import Link from "next/link";
+import SplitType from "split-type";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 Advertise.getLayout = function getLayout(page: any) {
   return (
@@ -48,15 +51,53 @@ export default function Advertise() {
 }
 
 function Intro() {
+  const target = useRef(null);
+  const sub = useRef(null);
+  useEffect(() => {
+    if (target.current) {
+      gsap.set(target.current, { visibility: "visible" });
+      const text = new SplitType(target.current);
+      gsap.from(text.chars, {
+        // yPercent: -50,
+        y: 100,
+        opacity: 0,
+        delay: 0.02,
+        stagger: 0.05,
+        duration: 0.5,
+        // scale: 0.5,
+        // ease: "expo.out",
+      });
+      if (sub.current) {
+        gsap.set(sub.current, { visibility: "visible" });
+        const text = new SplitType(sub.current);
+        gsap.from(text, {
+          // yPercent: -50,
+          y: 100,
+          opacity: 0,
+          delay: 0.02,
+          duration: 0.5,
+          // scale: 0.5,
+          // ease: "expo.out",
+        });
+      }
+    }
+  }, [target, sub]);
+
   return (
     <div>
       <h2 className="mt-16 text-center text-lg font-semibold text-tldr-blue md:mt-32">
         Advertising
       </h2>
-      <h1 className="mx-auto text-center text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl">
+      <h1
+        ref={target}
+        className="mx-auto overflow-hidden py-1 text-center text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl"
+      >
         Reach your target audience.
       </h1>
-      <p className="mx-auto mt-4 max-w-2xl text-center text-xl text-zinc-600 dark:text-zinc-300">
+      <p
+        ref={sub}
+        className="mx-auto mt-4 max-w-2xl overflow-hidden text-center text-xl text-zinc-600 dark:text-zinc-300"
+      >
         Use our platform to reach and engage engineers, entrepreneurs, and young
         creators from all around the world.
       </p>
