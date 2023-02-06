@@ -1,12 +1,4 @@
 import {
-  ArrowUturnLeftIcon,
-  ChatBubbleLeftEllipsisIcon,
-  DocumentChartBarIcon,
-  HeartIcon,
-  InboxIcon,
-  PencilSquareIcon,
-  TrashIcon,
-  UsersIcon,
   PresentationChartLineIcon,
   CurrencyDollarIcon,
   RocketLaunchIcon,

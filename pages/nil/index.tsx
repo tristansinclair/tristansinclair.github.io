@@ -7,7 +7,6 @@ import { FeatureSection } from "../../components-nil/FeatureSection";
 import { Footer } from "../../components-nil/Footer";
 import { AlternatingFeatureSection } from "../../components-nil/AlternatingFeatureSection";
 
-
 export default function Example() {
   return (
     <div className="bg-white">

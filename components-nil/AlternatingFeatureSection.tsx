@@ -1,8 +1,4 @@
-import {
-  InboxIcon,
-  SparklesIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import { SparklesIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import patreonImage from "../images/nil/patreon.png";
 import storeImage from "../images/nil/store.png";
