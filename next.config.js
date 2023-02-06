@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   reactStrictMode: true,
   exportPathMap: async function (
     defaultPathMap,
@@ -7,6 +8,9 @@ const nextConfig = {
   ) {
     return {
       "/": { page: "/" },
+      "/nil": { page: "/nil" },
+      "/tldr": { page: "/tldr" },
+      "/tldr/advertising": { page: "/tldr/advertising" },
     };
   },
   images: {
