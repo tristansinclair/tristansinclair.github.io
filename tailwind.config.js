@@ -8,6 +8,7 @@ module.exports = {
     "./pages/**/*.{html,js,ts,jsx,tsx}",
     "./components/**/*.{html,js,ts,jsx,tsx}",
     "./components-tldr/**/*.{html,js,ts,jsx,tsx}",
+    "./components-nil/**/*.{html,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -18,6 +19,8 @@ module.exports = {
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
       colors: {
+        "cardinal-red": { DEFAULT: "#8C1515", 300: "#B83A4B", 700: "#820000" },
+        "pa-green": { DEFAULT: "#175E54", 300: "#2D716F", 700: "#014240" },
         "tldr-blue": {
           DEFAULT: "#31AFFF",
           50: "#E9F6FF",
