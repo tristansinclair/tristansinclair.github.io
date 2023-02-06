@@ -141,7 +141,7 @@ export function Header() {
             </a>
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <a
+            {/* <a
               href="#"
               className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
             >
@@ -152,7 +152,7 @@ export function Header() {
               className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-cardinal-red bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-cardinal-red-700"
             >
               Sign up
-            </a>
+            </a> */}
           </div>
         </div>
 
