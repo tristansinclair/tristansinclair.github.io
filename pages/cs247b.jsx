@@ -152,7 +152,7 @@ function Account({ session }) {
         .list(today(), {
           limit: 20,
           offset: 0,
-          sortBy: { column: "created_at", order: "asc" },
+          sortBy: { column: "created_at", order: "desc" },
         });
       setImages(data);
     } catch (error) {
@@ -165,9 +165,16 @@ function Account({ session }) {
 
   return (
     <div className="mx-auto max-w-7xl py-16 px-6 lg:px-8">
-      <h1 className="mb-12 text-center text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+      <h1 className="text-center text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
         {"Welcome to the CS 247b Study " + session.user.email + "!"}
       </h1>
+      <div className="mb-12  mt-2 text-zinc-700 dark:text-zinc-500">
+        <p className="text-base">
+          {
+            "Join us on a daily adventure on Stanford's campus! As a participant in our study, we encourage you to take a break from your daily routine and spend some time at a new location each day. Relax, have fun, and snap a photo to share with other participants and let us know you checked in. Let's discover the beauty of the campus together!"
+          }
+        </p>
+      </div>
       <div className="grid gap-8 align-middle md:grid-cols-2 md:gap-16 ">
         <div className="relative min-h-[20rem] w-auto max-w-none overflow-hidden rounded-xl shadow-xl ring-1 ring-black/5">
           {!loading && (
@@ -220,6 +227,7 @@ function Account({ session }) {
                 id="file-upload"
                 name="file"
                 type="file"
+                accept="image/png, image/jpeg, image/jpg"
                 onChange={(event) => {
                   if (event.target.files) {
                     setFile(event.target.files[0]);
@@ -235,7 +243,14 @@ function Account({ session }) {
       <h2 className="mt-12 text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
         Image Gallery
       </h2>
-      <ImageGallery images={images} />
+      {images ? (
+        <ImageGallery images={images} />
+      ) : (
+        <div className="flex h-20 flex-col justify-center text-center text-zinc-600 dark:text-zinc-400">
+          No Images Yet. Be the first!
+        </div>
+      )}
+
       <div className="mt-2 flex w-full flex-col justify-center">
         <button
           className="rounded-md bg-pa-green px-3 py-2 text-white"
@@ -256,11 +271,11 @@ function ImageGallery(images) {
   return (
     <ul
       role="list"
-      className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+      className="mt-8 grid gap-x-4 gap-y-8 md:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
     >
       {images.images.map((file) => (
         <li key={CDN + today() + "/" + file.name} className="relative">
-          <div className="group relative h-80 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+          <div className="group relative h-[30rem] h-80 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
             <Image
               src={CDN + today() + "/" + file.name}
               alt=""
@@ -268,8 +283,11 @@ function ImageGallery(images) {
               fill
             />
           </div>
-          <p className="mt-2 block truncate text-center text-sm font-medium text-zinc-200">
+          <p className="mt-2 block truncate text-center text-sm font-medium text-zinc-600 dark:text-zinc-400">
             {file.name.substring(0, file.name.lastIndexOf("."))}
+          </p>
+          <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            {new Date(file.created_at).toLocaleTimeString()}
           </p>
         </li>
       ))}
