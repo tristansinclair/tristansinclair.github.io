@@ -154,7 +154,16 @@ function Account({ session }) {
           offset: 0,
           sortBy: { column: "created_at", order: "desc" },
         });
-      setImages(data);
+
+      const allowedExtensions = [".jpg", ".jpeg", ".png"];
+
+      const filteredFiles = data.filter((file) => {
+        return allowedExtensions.some((extension) =>
+          file.name.endsWith(extension)
+        );
+      });
+
+      setImages(filteredFiles);
     } catch (error) {
       toast.error("Issue fetching today's location. Try refreshing!");
       console.log(error);
@@ -243,7 +252,7 @@ function Account({ session }) {
       <h2 className="mt-12 text-center text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
         Image Gallery
       </h2>
-      {images ? (
+      {images.length > 0 ? (
         <ImageGallery images={images} />
       ) : (
         <div className="flex h-20 flex-col justify-center text-center text-zinc-600 dark:text-zinc-400">
