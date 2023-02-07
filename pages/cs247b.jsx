@@ -271,11 +271,11 @@ function ImageGallery(images) {
   return (
     <ul
       role="list"
-      className="mt-8 grid gap-x-4 gap-y-8 md:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+      className="mt-8 grid gap-x-4 gap-y-8 sm:gap-x-6 md:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
     >
       {images.images.map((file) => (
         <li key={CDN + today() + "/" + file.name} className="relative">
-          <div className="group relative h-[30rem] h-80 w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+          <div className="group relative h-[30rem] w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
             <Image
               src={CDN + today() + "/" + file.name}
               alt=""
