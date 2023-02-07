@@ -40,11 +40,13 @@ export default function Post({ post }: Props) {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <ArchiveLayout>
-        <article className="prose prose-zinc max-w-none dark:prose-invert">
-          <Newsletter content={post.content} />
-        </article>
-      </ArchiveLayout>
+      <NavLayout>
+        <ArchiveLayout>
+          <article className="prose prose-zinc max-w-none dark:prose-invert">
+            <Newsletter content={post.content} />
+          </article>
+        </ArchiveLayout>
+      </NavLayout>
     </>
   );
 }

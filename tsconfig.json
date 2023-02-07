@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": "src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/types/supabase.types", "components-tldr/Card.jsx", "components-tldr/NavLayout.jsx", "components-tldr/NavLayoutNew.ssx", "components-nil/Footer.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/types/supabase.types", "components-tldr/Card.jsx", "components-tldr/NavLayout.jsx", "components-tldr/NavLayoutNew.ssx", "components-nil/Footer.jsx", "pages/cs247b.jsx"],
   "exclude": ["node_modules"]
 }
 

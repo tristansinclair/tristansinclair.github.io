@@ -52,29 +52,31 @@ export default function Archive({ allNewsletters }: Props) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="The TLDR Newsletter's Archive" />
       </Head>
-      <ArchiveLayout>
-        <header>
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            {"Newsletter Archive"}
-          </h1>
-          <p className="mt-6 max-w-xl text-base text-zinc-600 dark:text-zinc-400">
-            {
-              "TLDR is a daily newsletter with links and TLDRs of the most interesting stories in startups 🚀, tech 📱, and programming 💻!"
-            }
-          </p>
-        </header>
+      <NavLayout>
+        <ArchiveLayout>
+          <header>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              {"Newsletter Archive"}
+            </h1>
+            <p className="mt-6 max-w-xl text-base text-zinc-600 dark:text-zinc-400">
+              {
+                "TLDR is a daily newsletter with links and TLDRs of the most interesting stories in startups 🚀, tech 📱, and programming 💻!"
+              }
+            </p>
+          </header>
 
-        <div className="mt-12 sm:mt-20">
-          <NewsletterFilter />
-          <div className="lg:border-l lg:border-zinc-100 lg:px-6 lg:dark:border-zinc-700/40">
-            <div className="flex max-w-4xl flex-col space-y-4">
-              {filteredNewsletters.map((post) => (
-                <NewsletterCardFull key={post.slug} newsletter={post} />
-              ))}
+          <div className="mt-12 sm:mt-20">
+            <NewsletterFilter />
+            <div className="lg:border-l lg:border-zinc-100 lg:px-6 lg:dark:border-zinc-700/40">
+              <div className="flex max-w-4xl flex-col space-y-4">
+                {filteredNewsletters.map((post) => (
+                  <NewsletterCardFull key={post.slug} newsletter={post} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </ArchiveLayout>
+        </ArchiveLayout>
+      </NavLayout>
     </>
   );
 }

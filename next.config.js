@@ -10,6 +10,7 @@ const nextConfig = {
       "/": { page: "/" },
       "/nil": { page: "/nil" },
       "/tldr": { page: "/tldr" },
+      "/cs247b": { page: "/cs247b" },
       "/tldr/advertising": { page: "/tldr/advertising" },
     };
   },
